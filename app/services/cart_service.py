@@ -1,9 +1,13 @@
 import json
 from pathlib import Path
 from typing import Any
+import logging
+logging.basicConfig(level=logging.INFO)
+
 
 STORAGE_FILE = Path(__file__).parent.parent.parent / "storage/cart.json"
 STORAGE_FILE.parent.mkdir(parents=True, exist_ok=True)
+logging.info("Cart storage path: %s", STORAGE_FILE)
 
 if not STORAGE_FILE.exists():
     STORAGE_FILE.write_text("{}", encoding="utf-8")

@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Any
 
 STORAGE_FILE = Path(__file__).parent.parent.parent / "storage/cart.json"
-STORAGE_FILE.parent.mkdir(exist_ok=True)
+STORAGE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 if not STORAGE_FILE.exists():
     STORAGE_FILE.write_text("{}", encoding="utf-8")
